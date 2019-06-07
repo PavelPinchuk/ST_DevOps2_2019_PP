@@ -10,8 +10,9 @@ $g = get-service
 $g | out-file service.txt
 get-childitem
 get-content -path C:\M2T2_PINCHUK\service.txt
-5) get-childitem -path variable: | where-object {$_.value -match "[0-999999999]"} | format-list value
-#и вручную считаем (пока только так смог)    ))
+5) $r = Get-Variable | ? -FilterScript {$_.Value.GetType() -like 'int*'}
+	$r | % {$sum += $_.value}
+	$sum 
 6) Get-Process | Sort-Object -Property cpu - descending
 7)Get-process | ConvertTo-Html -Property ProcessName, VM | Foreach { 
 If ($_.VM -lt 100) {$_ -Replace "<tr>", "<tr bgcolor=green>"}
