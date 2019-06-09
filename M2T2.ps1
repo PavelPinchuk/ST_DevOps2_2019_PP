@@ -15,8 +15,8 @@ get-content -path C:\M2T2_PINCHUK\service.txt
 	$sum 
 6) Get-Process | Sort-Object -Property cpu - descending
 7)Get-process | ConvertTo-Html -Property ProcessName, VM | Foreach { 
-If ($_.VM -lt 100) {$_ -Replace "<tr>", "<tr bgcolor=green>"}
-else {$_ -Replace "<tr>", "<tr bgcolor=red>"}} | Out-File c:\S1.html 
+If ($($_.VM/1Mb) -gt 100) {$($_.VM/1Mb -Replace "<tr>", "<tr bgcolor=green>"}
+else {$($_.VM/1Mb -Replace "<tr>", "<tr bgcolor=red>"}} | Out-File c:\S1.html 
 8) $FolderSize = Get-ChildItem C:\windows -exclude "*.tmp" -Recurse | measure -Property length -Sum
 ;
 >> "{0:N2}" -f $($FolderSize.Sum/1MB) +"MB"
