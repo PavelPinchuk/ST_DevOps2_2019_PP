@@ -1,4 +1,5 @@
-1)[CmdletBinding()]
+1)function t1 {
+[CmdletBinding()]
 Param 
     (
   [parameter(Mandatory=$true, HelpMessage="Enter name .txt file")]
@@ -19,6 +20,7 @@ else
     Write-host "File $OF not exist"
     }
 }
+t1
 
 #-----------------------------------------------------------------------------------------
 2)  $s = 0
@@ -42,7 +44,8 @@ $s
 
 #------------------------------------------------------------------------------------------
 
-4) [CmdletBinding()]
+4)function t2{ 
+[CmdletBinding()]
 Param 
     (
   [parameter(Mandatory=$true, HelpMessage="Enter Folder name")]
@@ -50,6 +53,7 @@ Param
     )
 "{0:N2} Gb" -f ((Get-ChildItem –force $F –Recurse -ErrorAction Stop -Exclude *.tmp | Measure-Object Length -Sum).sum / 1Gb) 
 }
+t2
 #-------------------------------------------------------------------------------------------
 
 5) $save = Get-HotFix | Export-Csv C:\M2T2_PINCHUK\ghf.csv
