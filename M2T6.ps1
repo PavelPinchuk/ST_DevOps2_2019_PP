@@ -52,7 +52,7 @@ PINCHUK_VM1   Off
 PINCHUK_VM2   Off
 PINCHUK_VM3   Off
 #>
-9) Get-VM -Name pavlovsky_vm2 | Stop-VM 
+9) Get-VM -Name pinchuk_vm2 | Stop-VM 
 10) New-vm -Name PINCHUK_VM4 -Generation 2 -Path 'C:\M2T2_PINCHUK\VMP' -MemoryStartupBytes 2GB -NewVHDPath 'C:\M2T2_PINCHUK\VHD' -NewVHDSizeBytes 64GB -SwitchName 'Private'
 11) New-VHD -Path 'C:\M2T2_PINCHUK\VHD\pnck.vhdx' -SizeBytes 64GB -Dynamic
 <#
